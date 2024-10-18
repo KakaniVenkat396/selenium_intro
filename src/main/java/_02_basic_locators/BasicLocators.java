@@ -39,7 +39,7 @@ public class BasicLocators {
 		System.out.println(links.size());
 		
 		/*
-		 * 	Diff b/w findElement(loc) Vs findElements(loc)
+		  	Diff b/w findElement(loc) Vs findElements(loc)
 
 			Scenario1: Locator is smatching with single web element
 			findElement(loc) ----> single web element ---> WebElement
