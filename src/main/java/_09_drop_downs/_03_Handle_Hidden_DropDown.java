@@ -30,7 +30,7 @@ public class _03_Handle_Hidden_DropDown {
 		driver.findElement(By.xpath("//label[text()='Job Title']//parent::div//following-sibling::div//div[@class='oxd-select-text-input']")).click();
 		
 		// SELECT SINGLE OPTION
-		driver.findElement(By.xpath("//span[text()='Content Specialist']")).click();
+		// driver.findElement(By.xpath("//span[text()='Content Specialist']")).click();
 		
 		// COUNT NUMBER OF OPTIONS
 		List<WebElement> options = driver.findElements(By.xpath("//div[@role='listbox']//span"));
