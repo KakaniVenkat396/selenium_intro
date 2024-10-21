@@ -1,0 +1,63 @@
+Day-31
+--------
+Dropdown box
+-------------
+1) select dropdown
+2) Bootstrap dropdown
+3) hidden drop down
+
+select dropdown
+-----------------
+
+Select
+
+selectByVisibleText()
+selectByvalue()
+selectByIndex()
+
+<Select id="country">
+ <option value="in">India<option>
+ 
+
+getOptions() --- returns all the options from the dropdown as a WebElement.
+
+Q: How to select hidden drop-down
+
+Way 1: Here’s a refined version of the instructions:
+
+ 
+i. First, open the Selector Hub.
+ii. Click on the **"Turn on Debugger"** option (usually the fourth icon).
+iii. Open the drop-down list in the UI.
+iv. Wait for 5 seconds.
+v. Switch to the **Source** tab in the Developer Tools.
+vi. Return to the **Elements** tab.
+vii. You should now be able to identify hidden elements as usual.
+viii. Once done, remember to turn off the debugger.
+
+Way 2: Here’s a refined version of the instructions:
+
+i. First, select the drop-down list.
+ii. Open the **Event Listeners** tab (found on the right side in Developer Tools).
+iii. Remove the **blur** event listener.
+iv. Now, open the drop-down list again.
+v. Use the pointer tool to identify the desired element.
+
+
+Assignment
+---------------
+1) Handle country dropdown with/without  using Select class:
+       https://phppot.com/demo/jquery-dependent-dropdown-list-countries-and-states/
+			a) count total number of options
+			b) print all the options 
+		       c) select one option
+
+2) Hidden dropdown
+Login to OrangeHRM--> pim--> employee status
+
+3) https://testautomationpractice.blogspot.com/
+	colors multi select box
+
+4) Google search box 
+  - find number of options search
+ - select one option.
