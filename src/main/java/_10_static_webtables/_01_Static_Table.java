@@ -1,4 +1,4 @@
-package web_tables;
+package _10_static_webtables;
 
 import java.time.Duration;
 
@@ -17,21 +17,21 @@ public class _01_Static_Table {
 		
 		driver.get("https://testautomationpractice.blogspot.com/");
 		
-		//1) find total number of rows in a table
+		//1) FIND TOTAL NUMBER OF ROWS IN A TABLE
 		int rows = driver.findElements(By.xpath("//table[@name='BookTable']//tr")).size(); // multiple tables
 		//int rows = driver.findElements(By.tagName("tr")).size(); // single table
 		System.out.println("The number of rows: "+rows);
 		
-		//2) find total number of columns in a table
+		//2) FIND TOTAL NUMBER OF COLUMNS IN A TABLE
 		int cols = driver.findElements(By.xpath("//table[@name='BookTable']//tr[1]//th")).size(); // multiple tables
 		//int cols = driver.findElements(By.tagName("th")).size(); // single table
 		System.out.println("The number of cols: "+cols);
 		
-		//3) Read data from specific row and column (ex: 5th row and 1st column)
+		//3) READ DATA FROM SPECIFIC ROW AND COLUMN (EX: 5TH ROW AND 1ST COLUMN)
 		String bookName = driver.findElement(By.xpath("//table[@name='BookTable']//tr[5]/td[1]")).getText();
 		System.out.println("Book Name is: "+bookName);
 		
-		//4) read data from all the rows and columns
+		//4) READ DATA FROM ALL THE ROWS AND COLUMNS
 		System.out.println("BookName"+"\t"+"Author"+"\t"+"Subject"+"\t"+"Price");
 		
 		for(int r = 2; r <= rows; r++) {
@@ -42,7 +42,7 @@ public class _01_Static_Table {
 			System.out.println();
 		}
 		
-		//5) Print book names whose author is Mukesh
+		//5) PRINT BOOK NAMES WHOSE AUTHOR IS MUKESH
 		for(int r = 2; r <= rows; r++) {
 			String author = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]/td[2]")).getText();
 			if(author.equalsIgnoreCase("mukesh")) {
@@ -51,7 +51,7 @@ public class _01_Static_Table {
 			}
 		}
 		
-		//6) Find total price of all the books
+		//6) FIND TOTAL PRICE OF ALL THE BOOKS
 		int total = 0;
 		for(int r = 2; r <= rows; r++) {
 			String price= driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]/td[4]")).getText();
@@ -63,5 +63,4 @@ public class _01_Static_Table {
 			driver.quit();
 		}
 	}
-
 }
