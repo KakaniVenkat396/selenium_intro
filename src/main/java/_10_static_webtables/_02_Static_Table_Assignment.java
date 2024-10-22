@@ -1,4 +1,4 @@
-package web_tables;
+package _10_static_webtables;
 
 import java.time.Duration;
 import java.util.Arrays;
