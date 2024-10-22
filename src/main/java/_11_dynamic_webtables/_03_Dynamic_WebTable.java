@@ -16,19 +16,23 @@ public class _03_Dynamic_WebTable {
 
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-        // Login Steps
+        // LOGIN STEPS
         driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-        // Click on Admin from left panel
+        // CLICK ON ADMIN FROM LEFT PANEL
         driver.findElement(By.cssSelector("a[href*='AdminModule']")).click();
         Thread.sleep(2000);
 
-        // Number of rows present in the table
+        // NUMBER OF ROWS PRESENT IN THE TABLE
         int noOfRows = driver.findElements(By.xpath("//div[@role='table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']//div[@role='row']")).size();
 
-        // Iterate the each and every row and get the values
+        //Xpath to capture value
+        //div[@class='oxd-table-body']//div[@class="oxd-table-card"][1]//div//div[2]//div
+        //Here div[@class="oxd-table-card"][1] is row number &  div[2] is column number
+
+        // ITERATE THE EACH AND EVERY ROW AND READ THE DATA
         for(int r = 1; r <= noOfRows; r++){
             String username = driver.findElement(By.xpath("//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+r+"]//div//div[2]")).getText();
             String userrole = driver.findElement(By.xpath("//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+r+"]//div//div[3]")).getText();
