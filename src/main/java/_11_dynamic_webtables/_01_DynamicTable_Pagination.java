@@ -34,16 +34,22 @@ public class _01_DynamicTable_Pagination {
 		
 		WebElement loginButton = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", loginButton);
+
+		// CLOSE WINDOW IF IT IS AVAILABLE
+		if(driver.findElement(By.xpath("//button[@class='btn-close']")).isDisplayed())
+		{
+			driver.findElement(By.xpath("//button[@class='btn-close']")).click();
+		}
 		
 		Thread.sleep(8000);
 		driver.findElement(By.xpath("//li[@id='menu-customer']")).click();
 		driver.findElement(By.xpath("//li[@id='menu-customer']//ul//li//a[contains(text(), 'Customers')]")).click();
 	
-		// Find the number of pages
+		// SHOWING 1 TO 10 OF 19081 (1909 PAGES)
 		String text = driver.findElement(By.xpath("//form[@id='form-customer']//div[contains(text(), 'Showing')]")).getText();
 		int numberOfPages = Integer.parseInt(text.substring(text.indexOf("(")+1, text.indexOf("Pages")-1));
 		
-		// Read the data from each and ever page
+		// READ THE DATA FROM EACH AND EVER PAGE
 		for(int p = 1; p <= 5; p++) {
 			if(p > 1) {
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -51,8 +57,7 @@ public class _01_DynamicTable_Pagination {
 			    active_page.click();
 			}
 			
-			//reading data from the page
-			
+			// READING DATA FROM THE CURRENT PAGE
 			int noOfRows=driver.findElements(By.xpath("//table[@class='table table-bordered table-hover']//tbody//tr")).size();
 			
 			for(int r=1;r<=noOfRows;r++)

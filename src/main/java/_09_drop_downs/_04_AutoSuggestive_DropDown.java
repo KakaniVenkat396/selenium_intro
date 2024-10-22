@@ -29,6 +29,7 @@ public class _04_AutoSuggestive_DropDown {
 			
 			if(options.get(i).getText().equalsIgnoreCase("selenium")) {
 				options.get(i).click();
+				break;
 			}
 		}
 	}
