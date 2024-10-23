@@ -1,10 +1,4 @@
-package date_pickers;
-
-import java.time.Duration;
-import java.time.Month;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package _12_calendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,32 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class _03_DatePicker {
-	
-	//User defined method for converting month from string--->Month object
-	public static Month converStringToObject(String month) {
-		
-		Map<String, Month> monthMap = new HashMap<>();
-		monthMap.put("Jan", Month.JANUARY);
-		monthMap.put("Feb", Month.FEBRUARY);
-		monthMap.put("Mar", Month.MARCH);
-		monthMap.put("Apr", Month.APRIL);
-		monthMap.put("May", Month.MAY);
-		monthMap.put("Jun", Month.JUNE);
-		monthMap.put("Jul", Month.JULY);
-		monthMap.put("Aug", Month.AUGUST);
-		monthMap.put("Sep", Month.SEPTEMBER);
-		monthMap.put("Oct", Month.OCTOBER);
-		monthMap.put("Nov", Month.NOVEMBER);
-		monthMap.put("Dec", Month.DECEMBER);
-		
-		Month vmonth = monthMap.get(month);
-		
-		if(vmonth == null) {
-			System.out.println("Invalid Month..!");
-		}
-		return vmonth;
-	}
+import java.time.Duration;
+import java.util.List;
+
+public class _04_DatePicker {
 	
 	public static void main(String[] args) {
 		WebDriver driver = new EdgeDriver();
@@ -54,12 +26,12 @@ public class _03_DatePicker {
 		driver.findElement(By.xpath("//input[@id='txtDate']")).click();
 		
 		while(true) {
-			//select year
+			// SELECT YEAR
 			WebElement yearDrpDwn = driver.findElement(By.xpath("//select[@data-handler='selectYear']"));
 			Select selectYear = new Select(yearDrpDwn);
 			selectYear.selectByValue(year);
 		
-			//select month
+			// SELECT MONTH
 			WebElement monthDrpDwn = driver.findElement(By.xpath("//select[@data-handler='selectMonth']"));
 			Select selectMonth = new Select(monthDrpDwn);
 			String currentMonth = selectMonth.getFirstSelectedOption().getText();

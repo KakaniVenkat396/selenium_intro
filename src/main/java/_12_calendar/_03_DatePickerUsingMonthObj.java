@@ -1,9 +1,4 @@
-package date_pickers;
-
-import java.time.Duration;
-import java.time.Month;
-import java.util.HashMap;
-import java.util.List;
+package _12_calendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,10 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class DatePickerDemo2 {
+import java.time.Duration;
+import java.time.Month;
+import java.util.HashMap;
+import java.util.List;
 
-	//user defined method for converting month from string--->Month
-    static Month convertMonth(String month) {
+public class _03_DatePickerUsingMonthObj {
+
+	// USER DEFINED METHOD FOR CONVERTING MONTH FROM STRING--->MONTH
+    static Month convertToMonth(String month) {
     	HashMap<String, Month> monthMap = new HashMap<String, Month>();
 
         monthMap.put("January", Month.JANUARY);
@@ -35,34 +35,31 @@ public class DatePickerDemo2 {
         if (vmonth == null) {
             System.out.println("Invalid Month...");
         }
-
         return vmonth;
     }
-    
 	
     static void selectDate(WebDriver driver,String requiredYear,String requiredMonth,String requiredDate)
     {
-		//select year
+		// SELECT YEAR
 		WebElement yearDropDown=driver.findElement(By.xpath("//select[@class='ui-datepicker-year']"));
 		Select selectYear=new Select(yearDropDown);
 		selectYear.selectByVisibleText(requiredYear);
 		
-		//select month
-		
+		// SELECT MONTH
 		while(true)
 		{
 			String displayMonth=driver.findElement(By.xpath("//span[@class='ui-datepicker-month']")).getText();
 			
-			//convert requiredMonth & displayMonth in to Month Objects
-			Month expectedMonth=convertMonth(requiredMonth);
-			Month currentMonth=convertMonth(displayMonth);
+			// CONVERT REQUIREDMONTH & DISPLAYMONTH IN TO MONTH OBJECTS
+			Month expectedMonth=convertToMonth(requiredMonth);
+			Month currentMonth=convertToMonth(displayMonth);
 			
-			//compare
+			// COMPARE
 			int result=expectedMonth.compareTo(currentMonth);
 			
-			// 0   months are equla
-			//>0   future month
-			//<0   past
+			// 0   MONTHS ARE EQUAL
+			// >0  FUTURE MONTH
+			// <0  PAST
 			
 			if(result<0) // past
 			{
@@ -79,7 +76,7 @@ public class DatePickerDemo2 {
 			}
 		}
 		
-		//date selection
+		// DATE SELECTION
 		List<WebElement> allDates=driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//tbody//tr//td//a"));
 		
 		for(WebElement dt:allDates)
@@ -89,8 +86,6 @@ public class DatePickerDemo2 {
 				dt.click();
 				break;
 			}
-			
-			
 		}
     }
 	
@@ -101,7 +96,7 @@ public class DatePickerDemo2 {
 		driver.get("https://testautomationpractice.blogspot.com/");
 		driver.manage().window().maximize();
 		
-		//input DOB
+		// INPUT DOB
 		String requiredYear = "2025";
 		String requiredMonth = "June";
 		String requiredDate = "15";
