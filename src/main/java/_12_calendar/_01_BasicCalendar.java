@@ -18,13 +18,13 @@ public class _01_BasicCalendar {
 
         driver.get("https://jqueryui.com/datepicker/");
 
-        // switch to frame
+        // SWITCH TO FRAME
         driver.switchTo().frame(0);
 
-        // 1. Directly send the date to text box
+        // 1. DIRECTLY SEND THE DATE TO TEXT BOX
         // driver.findElement(By.xpath("//input[@id='datepicker']")).sendKeys("10/19/2024");
 
-        //2. Handling the date picker
+        //2. HANDLING THE DATE PICKER
         String exp_day = "30";
         String exp_month = "December";
         String exp_year = "2025";

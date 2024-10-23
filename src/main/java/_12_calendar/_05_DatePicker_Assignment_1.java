@@ -1,14 +1,14 @@
-package date_pickers;
-
-import java.time.Duration;
-import java.util.List;
+package _12_calendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 
-public class DatePicker_Assignment_1 {
+import java.time.Duration;
+import java.util.List;
+
+public class _05_DatePicker_Assignment_1 {
 	
 	public static void main(String[] args) {
 		WebDriver driver = new EdgeDriver();
@@ -24,7 +24,7 @@ public class DatePicker_Assignment_1 {
 		
 		driver.findElement(By.xpath("//input[@id='datepicker']")).click();
 		
-		//selectFutureDate(driver, year, month, day);
+		// selectFutureDate(driver, year, month, day);
 		selectPastDate(driver, year, month, day);
 	}
 	

@@ -1,10 +1,4 @@
-package date_pickers;
-
-import java.time.Duration;
-import java.time.Month;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package _12_calendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class DatePicker_AssignmentUtility_2 {
+import java.time.Duration;
+import java.time.Month;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class _06_DatePicker_AssignmentUtility_2 {
 	
 	public static void main(String[] args) {
 		WebDriver driver = new EdgeDriver();
@@ -28,7 +28,7 @@ public class DatePicker_AssignmentUtility_2 {
 		
 		driver.findElement(By.xpath("//input[@id='txtDate']")).click();
 		
-		//selectFutureDate(driver, year, month, day);
+		// selectFutureDate(driver, year, month, day);
 		selectPastDate(driver, year, month, day);
 	}
 	
@@ -82,7 +82,7 @@ public class DatePicker_AssignmentUtility_2 {
 		}
 	}
 	
-	public static Month converStringToObject(String month) {
+	public static Month convertStringToMonthObject(String month) {
 		
 		Map<String, Month> monthMap = new HashMap<>();
 		monthMap.put("Jan", Month.JANUARY);
