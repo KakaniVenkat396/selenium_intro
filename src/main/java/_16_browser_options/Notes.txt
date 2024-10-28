@@ -1,0 +1,29 @@
+ChromeOptions
+EdgeOptions
+FirefoxOptions
+etc...
+
+ChromeOptions
+----------
+Headless testing
+-------------------------------------------------------
+ChromeOptions options=new ChromeOptions();
+options.addArguments("--headless=new"); 
+
+advantages
+-----
+1) we can do multiple tasks( since execution happend backend)
+2) faster execution
+
+disadvantage
+-----------
+1) user cannot see the actions on the page. so he cannot understand flow/functionality of the test.
+
+
+SSL Handling
+----------------------------------------------------		
+		ChromeOptions options=new ChromeOptions();
+		options.setAcceptInsecureCerts(true); // accepts SSL certificates
+
+
+to remove "Chrome is being controlled by automated test software"
